@@ -1,0 +1,15 @@
+{
+  "name": "nate-final",
+  "homepage": "https://ncallon503.github.io/finalweb",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}

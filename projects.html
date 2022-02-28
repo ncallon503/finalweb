@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NateDomain</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ------- AUDIO ------- -->
+
+    <!-- ------- AUDIO ------- -->
+
+    <div class="container2">
+      <header>
+        <a href="home.html" class="logo"
+          ><first>Nate</first> <span>Domain</span></a
+        >
+        <ul>
+          <li>
+            <a href="about.html" class="active">About</a>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <li>
+                  <a href="projects.html#proj1" onclick="proj1();">Projects</a>
+                </li>
+              </button>
+              <div class="dropdown-content">
+                <a href="projects.html#proj1" onclick="proj1();"
+                  >Minimum Spanning Tree</a
+                >
+                <a href="projects.html#proj2" onclick="proj2();"
+                  >Copy-On-Write</a
+                >
+                <a href="projects.html#proj3" onclick="proj3();"
+                  >Longest Common Substring</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="experience.html">Experience</a>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </header>
+      <table>
+        <div class="icons">
+          <a href="#"
+            ><img src="images/resized/left_t.png" onclick="prevSlide();"
+          /></a>
+
+          <a href="#"
+            ><img src="images/resized/right_t.png" onclick="nextSlide();"
+          /></a>
+        </div>
+        <div id="slideshow">
+          <div class="content4 active">
+            <about
+              ><h1>Past Projects</h1>
+              <br />
+              <h2>
+                Minimum Spanning Tree of <br />an Undirected Weighted Graph
+              </h2>
+              <br />
+              <p>
+                &nbsp;The Minimum Spanning Tree project I made would take input
+                of an undirected weighted graph, in the form of a weighted
+                adjacency matrix, for example:<br /><br />
+                0 1 5 2<br />
+                1 0 4 3<br />
+                5 4 0 6<br />
+                2 3 6 0<br /><br />
+                where "5" being on the spot (0,2) represents a weighted edge
+                between vertices 0 and 2, "4" being on the spot (1,2) represents
+                an edge of weight 4 between vertices 1 and 2, and so on. This
+                program used both Kruskal's and Prim's algorithms for
+                verification of the results, and some of the main logic in the
+                program is putting a vector (using C++) which will represent a
+                weighted adjacency matrix in memory, that has taken said numbers
+                from user input, and these indices are accessed using the
+                vector.at() function.
+              </p>
+              <br />
+              <p>
+                &nbsp;Connections between vertices are stored and sorted by
+                weight, and for Kruskal's algorithm these will be added from
+                least to highest weight (without creating a circuit) until the
+                graph is fully connected. In Prim's algorithm, the connections
+                are based on the vertices first and edges are added to the graph
+                that is already connected until the graph is fully connected and
+                not a circuit.
+              </p>
+              <br />
+              <p>
+                The reason this program is so useful is because of the
+                applications it can be used for. An airline company, for
+                example, might want to see how to be able to reach all the
+                desired destinations in a given area, in the cheapest and most
+                efficient way possible. A good way to find the most efficient
+                routes would be to map the routes based on their weight and
+                store all the connections into a weighted adjacency matrix, and
+                then use Prim's or Kruskal's algorithms to find a minimum
+                spanning tree of said routes. This would allow them to have
+                planned routes to all required destinations in the most
+                efficient way possible.
+              </p>
+              <br />
+              <p>
+                Github:
+                <a href="https://github.com/ncallon503/spanningtreeproj"
+                  >https://github.com/ncallon503/spanningtreeproj</a
+                >
+              </p></about
+            >
+          </div>
+          <div class="content4">
+            <about
+              ><h1>Past Projects</h1>
+              <br />
+              <h2>Implement Copy-On-Write Memory in xv6 Subsystem</h2>
+              <br />
+              <p>
+                &nbsp;This was actually by far the hardest in my opinion,
+                despite being less lines of code (that I had to modify/add) than
+                the others projects.
+                <br />
+              </p>
+
+              <p>
+                &nbsp;The xv6 subsystem is an operating system that has all the
+                code for its operations in discrete, available-to-edit files. In
+                this case, I had to modify trap code to recognize when a trap
+                referred to memory that was attempted to be accessed but not
+                allocated. Instead of crashing the program, what I had to do was
+                implement functionality that would share user and kernel memory
+                (rather than copying) to save memory space when
+                <i>reading</i> memory, but when <i>writing</i> memory and
+                sharing memory is no longer an option, to allocate a page table
+                accordingly, without the memory overflowing.
+              </p>
+              <br />
+              <p>
+                The way I implemented this was by adding multiple functions to
+                different files, but I only included trap.c as this is a public
+                repo and I know my teacher wouldn't like the answers being
+                shared online. The most noticable modifications are lines
+                72-104. At line 72 the r_scause() if statement I added is to
+                detect memory errors, and then implement the copy-on-write
+                functionality accordingly. Very cool, but very time-consuming
+                and brain-twisting project.
+              </p>
+              <br />
+              <p>
+                Github:
+                <a href="https://github.com/ncallon503/cow"
+                  >https://github.com/ncallon503/cow</a
+                >
+              </p></about
+            >
+          </div>
+          <div class="content4">
+            <about
+              ><h1>Past Projects</h1>
+              <br />
+              <h2>Longest Common Substring of Two Strings</h2>
+              <br />
+              <p>
+                &nbsp;Not the fanciest project, but will definitely add more
+                impressive projects as time goes on and I am no longer a
+                beginner of upper division. This program takes two strings and
+                compares them to find the longest common substring of the two.
+                For example, the strings:<br /><br />
+                i am a flying bird with 10 wings and no feet<br />
+                bird with 10 wings and five feet<br /><br />
+                will have the longest common substring be "bird with 10 wings ",
+                as they differ before and after. This program will find all the
+                common substrings of the two strings and will only return the
+                longest one.
+              </p>
+              <br />
+              <p>
+                &nbsp;One of the best parts about this program is that it uses
+                dynamic programming, which is much more space and time efficient
+                than the brute force approach.
+              </p>
+              <br />
+              <p>
+                Github:
+                <a href="https://github.com/ncallon503/longest-substring"
+                  >https://github.com/ncallon503/longest-substring</a
+                >
+              </p></about
+            >
+          </div>
+        </div>
+      </table>
+    </div>
+    <script type="text/javascript">
+      let slideshow = document.getElementById("slideshow");
+      let slides = slideshow.getElementsByClassName("content4");
+      let index = 0;
+
+      function nextSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }
+      function prevSlide() {
+        slides[index].classList.remove("active");
+        index = (index - 1 + slides.length) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      function proj1() {
+        for (let i = 0; i < 3; i++) slides[i].classList.remove("active");
+        index = 0;
+        slides[index].classList.add("active");
+      }
+
+      function proj2() {
+        for (let i = 0; i < 3; i++) slides[i].classList.remove("active");
+        index = 1;
+        slides[index].classList.add("active");
+      }
+
+      function proj3() {
+        for (let i = 0; i < 3; i++) slides[i].classList.remove("active");
+        index = 2;
+        slides[index].classList.add("active");
+      }
+
+      function checkUrl() {
+        //this checkUrl function is necessary for other pages, where for example if it ran "proj2()" on about.html, it would have no idea what to do.
+        let url = window.location.href;
+        let proj = url.substring(url.indexOf("#") + 1, url.length);
+        console.log(proj);
+
+        if (proj == "proj1") proj1();
+        else if (proj == "proj2") proj2();
+        else if (proj == "proj3") proj3();
+      }
+
+      checkUrl();
+    </script>
+  </body>
+</html>
