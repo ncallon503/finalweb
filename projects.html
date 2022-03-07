@@ -18,7 +18,7 @@
         >
         <ul>
           <li>
-            <a href="about.html" class="active">About</a>
+            <a href="index.html" class="active">About</a>
             <div class="dropdown">
               <button class="dropbtn">
                 <li>
@@ -231,7 +231,7 @@
       }
 
       function checkUrl() {
-        //this checkUrl function is necessary for other pages, where for example if it ran "proj2()" on about.html, it would have no idea what to do.
+        //this checkUrl function is necessary for other pages, where for example if it ran "proj2()" on index.html, it would have no idea what to do.
         let url = window.location.href;
         let proj = url.substring(url.indexOf("#") + 1, url.length);
         console.log(proj);
